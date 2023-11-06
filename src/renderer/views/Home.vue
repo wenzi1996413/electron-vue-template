@@ -16,7 +16,12 @@ const { message } = createDiscreteApi(['message']);
 const govideo = (type: string) => {
     message.warning(type);
     console.log(router)
-    router.push('/videoPlay')
+    if (type == 'left') {
+        router.push('/videoPlay')
+    } else {
+        router.push('/drawSign')
+    }
+
 }   
 </script>
 
@@ -25,7 +30,7 @@ const govideo = (type: string) => {
 .container {
     width: 100vw;
     height: 100vh;
-    background-image: url("../../public/图片1.png");
+    background-image: url("/图片1.png");
 
     div {
         width: 24vw;

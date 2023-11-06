@@ -1,20 +1,23 @@
 <template>
     <div class="container">
-        <p>视频播放</p>
         <div>
-            <vue3VideoPlay v-bind="options" poster='https://go.dreamwq.com/videos/ironMan.jpg' />
+            <vue3VideoPlay v-bind="options"
+                poster="https://pic1.zhimg.com/80/v2-2f4faaf96423758211cfb77fa20eaa70_720w.webp" />
+            <i class="iconfont icon-close" @click="back"></i>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
 import { reactive } from 'vue';
+import { useRouter } from 'vue-router';
+const router = useRouter();
 const options = reactive({
     width: '800px', //播放器高度
     height: '450px', //播放器高度
     color: "#409eff", //主题色
     title: '', //视频名称
-    src: "https://go.dreamwq.com/videos/IronMan.mp4", //视频源
+    src: "https://media.w3.org/2010/05/sintel/trailer.mp4", //视频源
     muted: false, //静音
     webFullScreen: true,
     speedRate: ["0.75", "1.0", "1.25", "1.5", "2.0"], //播放倍速
@@ -25,12 +28,22 @@ const options = reactive({
     volume: 0.6, //默认音量大小
     control: false, //是否显示控制器
 })
+const back = () => {
+    router.go(-1)
+}
 </script>
 
 <style scoped lang="less">
 .container {
     width: 100vw;
     height: 100vh;
+
+    i {
+        font-size: 80px;
+        color: white;
+        position: absolute;
+        z-index: 9999999;
+    }
 
     p {
         font-size: 30px;

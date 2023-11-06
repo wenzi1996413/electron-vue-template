@@ -7,11 +7,15 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue')
     },
     {
-      path: '/videoPlay',
-      name: 'videoPlay',
-      component: () => import(/* webpackChunkName: "station" */ '../views/videoPlay.vue')
+        path: '/videoPlay',
+        name: 'videoPlay',
+        component: () => import(/* webpackChunkName: "station" */ '../views/videoPlay.vue')
     },
-
+    {
+        path: '/drawSign',
+        name: 'drawSign',
+        component: () => import(/* webpackChunkName: "station" */ '../views/drawSign/index.vue')
+    },
 ]
 
 const router = createRouter({
